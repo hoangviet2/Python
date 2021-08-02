@@ -1,14 +1,17 @@
 from ssl import Options
-from typing import Text
 import justpy as jp
-from justpy.chartcomponents import HighCharts
-from justpy.htmlcomponents import Option
-from pandas.core.dtypes.common import classes
+import pandas
+from datetime import datetime
+from pytz import utc
+data = pandas.read_csv('reviews.csv',parse_dates=['Timestamp'])
+data['Week'] = data['Timestamp'].dt.strftime('%Y-%U')
+week_average = data.groupby(['Week']).mean()
+
 chart_def = """
 {
     chart: {
         type: 'spline',
-        inverted: true
+        inverted: false
     },
     title: {
         text: 'Atmosphere Temperature by Altitude'
@@ -68,10 +71,9 @@ def app():
     webPage = jp.QuasarPage()
     Head = jp.QDiv(a=webPage,text="A analysis of course review",classes="text-h3 text-center q-pa-md")
     Foot = jp.QDiv(a=webPage,text="Those graphs respresent course review analysis")
-    Hc = jp.HighCharts(a=webPage,options = chart_def)
-    Hc.options.title.text = "Average by rating"
-    Hc.options.series[0].data = [[0,12],[45,60]]
-    
+    highchart = jp.HighCharts(a=webPage,options=chart_def)
+    highchart.options.xAxis.categories = list(week_average.index)
+    highchart.options.series[0].data = list(week_average['Rating'])
     return webPage
 
 jp.justpy(app)
