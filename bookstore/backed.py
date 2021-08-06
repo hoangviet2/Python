@@ -1,49 +1,32 @@
 import sqlite3
-from sqlite3.dbapi2 import Cursor
+from sqlite3.dbapi2 import Cursor, DatabaseError
 
-def connect():
-    connectors = sqlite3.connect("books.db")
-    cursor = connectors.cursor()
-    cursor.execute("CREATE TABLE IF NOT EXISTS books (id INTEGER PRIMARY KEY, title text, author text, year text,isbn integer)")
-    connectors.commit()
-    connectors.close()
+class Database:
+    def __init__(self):
+        self.connectors = sqlite3.connect("books.db")
+        self.cursor = self.connectors.cursor()
+        self.cursor.execute("CREATE TABLE IF NOT EXISTS books (id INTEGER PRIMARY KEY, title text, author text, year text,isbn integer)")
+        self.connectors.commit()
+        
+    
+    def insert(self,title,author,year,isbn):
+        self.cursor.execute("INSERT INTO books VALUES(NULL,?,?,?,?)",(title,author,year,isbn))
+        self.connectors.commit()
 
-def insert(title,author,year,isbn):
-    connectors = sqlite3.connect("books.db")
-    cursor  = connectors.cursor()
-    cursor.execute("INSERT INTO books VALUES(NULL,?,?,?,?)",(title,author,year,isbn))
-    connectors.commit()
-    connectors.close()
+    def view(self):
+        self.cursor.execute("SELECT * FROM books")
+        row = self.cursor.fetchall()
+        return row
 
-def view():
-    connectors = sqlite3.connect("books.db")
-    cursor  = connectors.cursor()
-    cursor.execute("SELECT * FROM books")
-    row = cursor.fetchall()
-    connectors.close()
-    return row
+    def search(self,title = "",author = "",year="",isbn=""):
+        self.cursor.execute("SELECT * FROM books WHERE title = ? OR author = ? OR year = ? OR isbn = ? ",(title,author,year,isbn))
+        row = self.cursor.fetchall()
+        return row
 
-def search(title = "",author = "",year="",isbn=""):
-    connectors = sqlite3.connect("books.db")
-    cursor  = connectors.cursor()
-    cursor.execute("SELECT * FROM books WHERE title = ? OR author = ? OR year = ? OR isbn = ? ",(title,author,year,isbn))
-    row = cursor.fetchall()
-    connectors.close()
-    return row
+    def delete(self,id):
+        self.cursor.execute("DELETE FROM books WHERE id =?",(id,))
+        self.connectors.commit()
 
-def delete(id):
-    connectors = sqlite3.connect("books.db")
-    cursor  = connectors.cursor()
-    cursor.execute("DELETE FROM books WHERE id =?",(id,))
-    connectors.commit()
-    connectors.close()
-
-def update(id,title,author,year,isbn):
-    connectors = sqlite3.connect("books.db")
-    cursor  = connectors.cursor()
-    cursor.execute("UPDATE books SET title=?,author=?,year=?,isbn=? WHERE id=?",(id,title,author,year,isbn))
-    connectors.commit()
-    connectors.close()
-
-connect()
-print(view())
+    def update(self,id,title,author,year,isbn):
+        self.cursor.execute("UPDATE books SET title=?,author=?,year=?,isbn=? WHERE id=?",(id,title,author,year,isbn))
+        self.connectors.commit()

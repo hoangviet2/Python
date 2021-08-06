@@ -1,0 +1,47 @@
+,no,name,birthplace,political party,term
+0,1,George Washington,Va.,Federalist,1789–97
+1,2,John Adams,Mass.,Federalist,1797–1801
+2,3,Thomas Jefferson,Va.,Democratic-Republican,1801–09
+3,4,James Madison,Va.,Democratic-Republican,1809–17
+4,5,James Monroe,Va.,Democratic-Republican,1817–25
+5,6,John Quincy Adams,Mass.,        National Republican      ,1825–29
+6,7,Andrew Jackson,S.C.,Democratic,1829–37
+7,8,Martin Van Buren,N.Y.,Democratic,1837–41
+8,9,William Henry Harrison,Va.,Whig,1841*
+9,10,John Tyler,Va.,Whig,1841–45
+10,11,James K. Polk,N.C.,Democratic,1845–49
+11,12,Zachary Taylor,Va.,Whig,1849–50*
+12,13,Millard Fillmore,N.Y.,Whig,1850–53
+13,14,Franklin Pierce,N.H.,Democratic,1853–57
+14,15,James Buchanan,Pa.,Democratic,1857–61
+15,16,Abraham Lincoln,Ky.,Republican,1861–65*
+16,17,Andrew Johnson,N.C.,        Democratic (Union)      ,1865–69
+17,18,Ulysses S. Grant,Ohio,Republican,1869–77
+18,19,Rutherford B. Hayes,Ohio,Republican,1877–81
+19,20,James A. Garfield,Ohio,Republican,1881*
+20,21,Chester A. Arthur,Vt.,Republican,1881–85
+21,22,Grover Cleveland,N.J.,Democratic,1885–89
+22,23,Benjamin Harrison,Ohio,Republican,1889–93
+23,24,Grover Cleveland,N.J.,Democratic,1893–97
+24,25,William McKinley,Ohio,Republican,1897–1901*
+25,26,Theodore Roosevelt,N.Y.,Republican,1901–09
+26,27,William Howard Taft,Ohio,Republican,1909–13
+27,28,Woodrow Wilson,Va.,Democratic,1913–21
+28,29,Warren G. Harding,Ohio,Republican,1921–23*
+29,30,Calvin Coolidge,Vt.,Republican,1923–29
+30,31,Herbert Hoover,Iowa,Republican,1929–33
+31,32,Franklin D. Roosevelt,N.Y.,Democratic,1933–45*
+32,33,Harry S. Truman,Mo.,Democratic,1945–53
+33,34,Dwight D. Eisenhower,Texas,Republican,1953–61
+34,35,John F. Kennedy,Mass.,Democratic,1961–63*
+35,36,Lyndon B. Johnson,Texas,Democratic,1963–69
+36,37,Richard M. Nixon,Calif.,Republican,1969–74**
+37,38,Gerald R. Ford,Neb.,Republican,1974–77
+38,39,Jimmy Carter,Ga.,Democratic,1977–81
+39,40,Ronald Reagan,Ill.,Republican,1981–89
+40,41,George Bush,Mass.,Republican,1989–93
+41,42,Bill Clinton,Ark.,Democratic,1993–2001
+42,43,George W. Bush,Conn.,Republican,2001–09
+43,44,Barack Obama,Hawaii,Democratic,2009–17
+44,45,Donald Trump,N.Y.,Republican,2017–21
+45,46,Joe Biden,Pa.,Democratic,2021–
